@@ -1,0 +1,8 @@
+Category.create(name: "Jobs")
+Category.create(name: "Cars")
+Category.create(name: "Rentals")
+Category.create(name: "Personals")
+Category.create(name: "Bikes")
+Category.create(name: "Gigs")
+Category.create(name: "Rants")
+Category.create(name: "Pets")

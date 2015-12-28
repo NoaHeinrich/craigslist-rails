@@ -1,0 +1,8 @@
+<h1>Create New Article</h1>
+
+<%= form_for @article, url: {action: "create"} do |f| %>
+  Title<%= f.text_field :title %>
+  Location<%= f.text_field :location %>
+  <%= f.text_area :body %>
+  <%= f.submit "Post your article" %>
+  <% end %>
