@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+nav {
+  background-color: #403b33
+}
+
+.container {
+  margin: 0 auto;
+  padding: 5%;
+  padding-top: 0;
+}
+
+.delete a {
+  color: #ffffff;
+}
+
+.dropdown {
+  clear: both;
+  height: 20px;
+  width: 100px;
+}

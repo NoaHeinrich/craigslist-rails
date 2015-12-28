@@ -1,8 +1,13 @@
 <h1>Create New Article</h1>
 
 <%= form_for @article, url: {action: "create"} do |f| %>
-  Title<%= f.text_field :title %>
-  Location<%= f.text_field :location %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+
+  <%= f.label :body %>
   <%= f.text_area :body %>
-  <%= f.submit "Post your article" %>
+  <%= f.submit "Post your article", class: :"waves-effect waves-light btn" %>
   <% end %>

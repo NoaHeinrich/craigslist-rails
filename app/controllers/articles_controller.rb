@@ -6,11 +6,20 @@ class ArticlesController < ApplicationController
   def create
     @category = Category.find(params[:category_id])
     @article = @category.articles.create(article_params)
+    @article.randomKey
+    @article.save
+    flash[:message] = "To edit your post you will need this url: http://localhost:3000/articles/#{@article.id}/edit?key=#{@article.key}"
     redirect_to article_path(@article.id)
   end
 
   def edit
     @article = Article.find(params[:id])
+    @categories = Category.all
+    if params[:key] != @article.key
+      flash[:message] = "This url does not match"
+      redirect_to "/"
+    end
+
   end
 
   def show
@@ -19,7 +28,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    @article.update(title: params[:title], body: params[:body], location: params[:location])
+    @article.update(article_params)
     redirect_to article_path(@article.id)
   end
 
@@ -29,6 +38,7 @@ class ArticlesController < ApplicationController
     @article.destroy
     redirect_to category_path(@category.id)
   end
+
 
   private
 
